@@ -7,7 +7,6 @@ result_msg: .asciz "result is "          # Message
 .global _start
 
 _start:
-    # Prompt for the first number
     li a7, 4                     # PrintString
     la a0, msg_one               # Load address of msg_one
     ecall
