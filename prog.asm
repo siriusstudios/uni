@@ -4,8 +4,6 @@ msg_two: .asciz "Enter the second number: "   # second number
 result_msg: .asciz "result is "          # Message 
 
 .text
-.global _start
-
 _start:
     li a7, 4                     # PrintString
     la a0, msg_one               # Load address of msg_one
