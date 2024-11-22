@@ -2,36 +2,29 @@
 prompt: .asciz "Enter a number: "
 result_msg: .asciz "Factorial: %d\n"
 
-    .section .text
-    .globl main
-
 main:
-    # Print prompt
-    li a7, 4              # syscall for print string
-    la a0, prompt         # load address of prompt
-    ecall                 # make syscall
+    li a7, 4              # PrintString
+    la a0, prompt         #load the prompt 
+    ecall                 
 
-    # Read integer input
-    li a7, 5              # syscall for read integer
-    ecall                 # make syscall
-    mv t0, a0            # move input to t0 (n)
+    li a7, 5              #ReadInteger
+    ecall
 
-    # Initialize factorial result
+    mv t0, a0            
+
     li a0, 1              # a0 will hold the result (factorial)
     li t1, 1              # t1 will be our counter (i)
 
 factorial_loop:
-    bgt t1, t0, end_loop  # if i > n, exit loop
+    bgt t1, t0, end_loop
     mul a0, a0, t1        # result *= i
     addi t1, t1, 1        # i++
-    j factorial_loop       # repeat the loop
+    j factorial_loop      # repeat the loop
 
 end_loop:
-    # Print result
-    li a7, 1              # syscall for print integer
-    mv a1, a0             # move result to a1
-    ecall                 # make syscall
+    li a7, 1              # PrintInteger
+    mv a1, a0             
+    ecall                 
 
-    # Exit program
-    li a7, 10             # syscall for exit
-    ecall                 # make syscall
+    li a7, 10             # exit
+    ecall                 
