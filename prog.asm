@@ -1,7 +1,7 @@
 .data
-msg_one: .asciz "Enter the first number: "    # first number
-msg_two: .asciz "Enter the second number: "   # second number
-result_msg: .asciz "result is "          # Message 
+    msg_one: .asciz "Enter the first number: "  
+    msg_two: .asciz "Enter the second number: "  
+    result_msg: .asciz "result is " 
 
 .text
 _start:
