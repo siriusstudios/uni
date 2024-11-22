@@ -20,7 +20,7 @@ _start:
     li a7, 5                     # ReadInteger
     ecall
     mv t1, a0                    # storing 2nd number in t1
-    addi t2, t0, t1               # add nums
+    add t2, t0, t1               # add nums
 
     li a7, 4                     # PrintString
     la a0, result_msg            # Load address of result_msg
